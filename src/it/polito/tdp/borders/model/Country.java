@@ -1,9 +1,11 @@
 package it.polito.tdp.borders.model;
 
 /**
- * Java Bean class for representing instances of the COUNTRY table in the COUNTRIES data-set.
+ * Java Bean class for representing instances of the COUNTRY table in the
+ * COUNTRIES data-set.
  * 
- * <p>Includes 3 properties: 
+ * <p>
+ * Includes 3 properties:
  * <ul>
  * <li>{@code cCode} (the country code)
  * <li>{@code stateAbb} (a 3 letter abbreviation for the state),
@@ -13,12 +15,12 @@ package it.polito.tdp.borders.model;
  * @author Fulvio
  *
  */
-public class Country {
+public class Country implements Comparable<Country> {
 
-	private int cCode ; // Country Code for the state
-	private String stateAbb ; // State Abbreviation (3 capital letters)
-	private String stateName ; // Full State name
-	
+	private int cCode; // Country Code for the state
+	private String stateAbb; // State Abbreviation (3 capital letters)
+	private String stateName; // Full State name
+
 	/**
 	 * Initialize a new {@link Country} object, with full parameters.
 	 * 
@@ -75,7 +77,9 @@ public class Country {
 		this.stateName = stateName;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -86,7 +90,9 @@ public class Country {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -103,14 +109,24 @@ public class Country {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
+//	@Override
+//	public String toString() {
+//		return String.format("[%s=%s]", stateAbb, stateName);
+//	}
+
+	@Override
+	public int compareTo(Country o) {
+		return this.stateName.compareTo(o.stateName);
+	}
+
 	@Override
 	public String toString() {
-		return String.format("[%s=%s]", stateAbb, stateName);
+		return stateName;
 	}
-	
-	
-	
+
 }
