@@ -60,7 +60,7 @@ public class Simulatore {
 				for (Country c : confinanti) {
 					queue.add(new Evento(e.getT() + 1, migranti, c));
 				}
-				int stanziali = nPersone - migranti * confinanti.size();
+				int stanziali = nPersone - (migranti * confinanti.size());
 				this.stanziali.put(stato, this.stanziali.get(stato)+stanziali);
 				
 			}

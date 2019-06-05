@@ -16,6 +16,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 public class BordersController {
 
@@ -86,6 +88,7 @@ public class BordersController {
 			if(c.getNumber()>0)
 			txtResult.appendText(String.format("%s = %d\n", c.getCountry().getStateName(), c.getNumber()));
 		}
+		txtResult.positionCaret(0);
 		
 	}
 
@@ -94,6 +97,8 @@ public class BordersController {
 		assert txtAnno != null : "fx:id=\"txtAnno\" was not injected: check your FXML file 'Borders.fxml'.";
 		assert boxNazione != null : "fx:id=\"boxNazione\" was not injected: check your FXML file 'Borders.fxml'.";
 		assert txtResult != null : "fx:id=\"txtResult\" was not injected: check your FXML file 'Borders.fxml'.";
+		txtResult.setStyle("-fx-font-family: monospace");
+		txtResult.setFont(Font.font(null, FontWeight.BOLD, 12));
 	}
 
 	public void setModel(Model model) {
